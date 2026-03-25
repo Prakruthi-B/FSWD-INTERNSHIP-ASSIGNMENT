@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive lading section</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+  
+    .navbar{
+        display: flex;
+      justify-content: space-between;
+     align-items: center;
+     padding: 20px;
+     background-color: black;
+     color: white;
+    }
+    h2{
+        font-size: large;
+        font-family: 'Times New Roman', Times, serif;
+        color: blueviolet;
+    }
+    .nav link{
+       display: center;
+       gap: 20px;
+    }
+    .Hero{
+        text-align: center;
+        padding:60px 20px;
+        background-color: lightgrey;
+
+    }
+    .Cards{
+        flex: 1;
+        background-color: lightseagreen;
+        color: black;
+        padding: 40px;
+        font: 20px;
+        text-align: center;
+    }
+  @media(max-width:768px);
+  {
+    .navbar{
+       flex-direction: column;
+       gap: 10px;
+    }
+    .Cards{
+        flex-direction: column;
+    }
+  } 
+</style>
+<body>
+   <div class="container">
+    <nav class="navbar">
+        <h2>Mysite</h2>
+        <ul class="nav links">
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+    <section class="Hero">
+        <h1>Learn web development</h1>
+        <p>Build responsiv website</p>
+    </section>
+    <section class="Cards">
+        <div class="Cards">HTML</div>
+         <div class="Cards">CSS</div>
+          <div class="Cards">JS</div>
+    </section>
+    </div>
+</body>
+</html>

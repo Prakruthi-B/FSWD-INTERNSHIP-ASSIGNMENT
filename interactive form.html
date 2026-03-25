@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation</title>
+  <style>
+    body { font-family: Arial; }
+    .error { color: red; }
+    .success { color: green; }
+    input { display: block; margin: 10px 0; padding: 5px; }
+  </style>
+</head>
+<body>
+
+<h2>Signup Form</h2>
+
+<form id="myForm">
+  <input type="text" id="name" placeholder="Enter name">
+  <span id="nameError" class="error"></span>
+
+  <input type="email" id="email" placeholder="Enter email">
+  <span id="emailError" class="error"></span>
+
+  <input type="password" id="password" placeholder="Enter password">
+  <span id="passwordError" class="error"></span>
+
+  <button type="submit">Submit</button>
+</form>
+
+<p id="message"></p>
+
+<script>
+document.getElementById("myForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let password = document.getElementById("password").value.trim();
+
+  let isValid = true;
+
+  document.getElementById("nameError").textContent = "";
+  document.getElementById("emailError").textContent = "";
+  document.getElementById("passwordError").textContent = "";
+  document.getElementById("message").textContent = "";
+
+  if (name === "") {
+    document.getElementById("nameError").textContent = "Name is required";
+    isValid = false;
+  }
+
+  let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  if (!email.match(emailPattern)) {
+    document.getElementById("emailError").textContent = "Invalid email";
+    isValid = false;
+  }
+
+  if (password.length < 6) {
+    document.getElementById("passwordError").textContent = "Password must be at least 6 characters";
+    isValid = false;
+  }
+
+  if (isValid) {
+    document.getElementById("message").textContent = "Form submitted successfully";
+    document.getElementById("message").className = "success";
+  } else {
+    document.getElementById("message").textContent = "Please fix errors";
+    document.getElementById("message").className = "error";
+  }
+});
+</script>
+
+</body>
+</html>
